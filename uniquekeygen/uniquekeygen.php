@@ -8,3 +8,16 @@
  * Version: 1.0
  * Lincense: GPLv2
  **/
+
+
+function ukg_return_table_name(){
+    global $wpdb;
+    $table_name = $wpdb->prefix . "unique_key_gen";
+    return $table_name;
+}
+
+function ukg_return_char_set(){
+    global $wpdb;
+    return $wpdb->get_charset_collate();
+}
+
