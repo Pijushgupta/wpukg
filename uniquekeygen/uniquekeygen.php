@@ -9,10 +9,6 @@
  * Lincense: GPLv2
  **/
 
-function ukg_init(){
-    
-}
-
 function ukg_return_table_name(){
     global $wpdb;
     $table_name = "unique_key_gen";
@@ -43,3 +39,12 @@ function ukg_set_intial_data($args=null){
         $wpdb->insert(ukg_return_table_name(),array('uk'=>1));
     }
 }
+
+function ukg_is_table_exits(){
+    
+}
+
+function ukg_init(){
+    
+}
+register_activation_hook(__FILE__,'ukg_init');
