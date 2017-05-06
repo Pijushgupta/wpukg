@@ -9,6 +9,9 @@
  * Lincense: GPLv2
  **/
 
+function ukg_init(){
+    
+}
 
 function ukg_return_table_name(){
     global $wpdb;
