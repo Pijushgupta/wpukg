@@ -43,7 +43,9 @@ function ukg_set_intial_data($args=null){
 function ukg_is_table_exits(){
     global $wpdb;
     if($wpdb->get_var("SHOW TABLES LIKE 'ukg_return_table_name()'")!= ukg_return_table_name()){
-        
+        return true;
+    }else{
+        return false;
     }
 }
 
