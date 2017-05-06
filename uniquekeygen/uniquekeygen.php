@@ -72,3 +72,4 @@ function ukg_get_key(){
      $wpdb->update( ukg_return_table_name(), array('uk'=>$new_key),array('uk'=>$unique_key[0][0]));
      return $unique_key[0][0];
 }
+add_shortcode('ukg_get_key', 'ukg_get_key');
