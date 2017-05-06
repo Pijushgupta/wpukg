@@ -21,3 +21,14 @@ function ukg_return_char_set(){
     return $wpdb->get_charset_collate();
 }
 
+function ukg_create_table(){
+    
+    $sql = "CREATE TABLE ukg_return_table_name() (
+        uk varchar(255) NOT NULL
+        ) ukg_return_char_set();";
+    
+    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+    dbDelta( $sql );
+}
+
+
