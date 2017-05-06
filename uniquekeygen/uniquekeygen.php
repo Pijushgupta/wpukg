@@ -12,8 +12,9 @@
 
 function ukg_return_table_name(){
     global $wpdb;
-    $table_name = $wpdb->prefix . "unique_key_gen";
+    $table_name = "unique_key_gen";
     //You can change the table name before activating the plugin!
+    $table_name = $wpdb->prefix.$table_name ;
     return $table_name;
 }
 
