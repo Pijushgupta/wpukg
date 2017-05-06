@@ -36,13 +36,13 @@ function ukg_set_intial_data($args=null){
     if($args!=null){
         $wpdb->insert(ukg_return_table_name(),array('uk'=>$args));
     }else{
-        $wpdb->insert(ukg_return_table_name(),array('uk'=>1));
+        $wpdb->insert(ukg_return_table_name(),array('uk'=>'1'));
     }
 }
 
 function ukg_is_table_exits(){
     global $wpdb;
-    if($wpdb->get_var("SHOW TABLES LIKE 'ukg_return_table_name()'")!= ukg_return_table_name()){
+    if($wpdb->get_var("SHOW TABLES LIKE 'ukg_return_table_name()'")== ukg_return_table_name()){
         return true;
     }else{
         return false;
@@ -50,6 +50,9 @@ function ukg_is_table_exits(){
 }
 
 function ukg_init(){
-    
+    if(ukg_is_table_exits()== FALSE){
+        ukg_create_table();
+        ukg_set_intial_data('1988');
+    }
 }
 register_activation_hook(__FILE__,'ukg_init');
