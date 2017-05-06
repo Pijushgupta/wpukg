@@ -3,7 +3,7 @@
  * Plugin Name: Unique Key Genarator
  * Description: A simple plugin to genarate unique number everytime. 
  * Plugin URI: https://github.com/Pijushgupta/wpukg.git
- * Author: Pijush Gupta
+ * Author: With love Pijush Gupta
  * Author URI: https://github.com/Pijushgupta
  * Version: 1.0
  * Lincense: GPLv2
@@ -56,3 +56,16 @@ function ukg_init(){
     }
 }
 register_activation_hook(__FILE__,'ukg_init');
+
+
+/*
+ * 
+ * Function to get unique key
+ * 
+ */
+
+
+function ukg_get_key(){
+     global wpdb;
+     $wpdb->
+}
