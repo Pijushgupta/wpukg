@@ -70,7 +70,8 @@ register_activation_hook(__FILE__,'ukg_init');
 
 function ukg_get_key(){
      global $wpdb;
-     $unique_key=$wpdb->get_results( "SELECT * FROM ukg_return_table_name()",ARRAY_N  );
+     $table_name = ukg_return_table_name();
+     $unique_key = $wpdb->get_results( "SELECT * FROM $table_name",ARRAY_N  );
      $new_key = $unique_key[0][0] + 1;
      $wpdb->update( ukg_return_table_name(), array('uk'=>$new_key),array('uk'=>$unique_key[0][0]));
      return $unique_key[0][0];
