@@ -13,7 +13,7 @@ function ukg_return_table_name(){
     global $wpdb;
     $table_name = "unique_key_gen";
     //You can change the table name before activating the plugin!
-    $table_name = $wpdb->prefix.$table_name ;
+    $table_name = $wpdb->prefix . $table_name ;
     return $table_name;
 }
 
@@ -43,8 +43,10 @@ function ukg_set_intial_data($args=null){
 function ukg_is_table_exits(){
     global $wpdb;
     if($wpdb->get_var("SHOW TABLES LIKE 'ukg_return_table_name()'")== ukg_return_table_name()){
+       
         return true;
     }else{
+        
         return false;
     }
 }
@@ -57,13 +59,11 @@ function ukg_init(){
 }
 register_activation_hook(__FILE__,'ukg_init');
 
-
 /*
  * 
  * Function to get unique key
  * 
  */
-
 
 function ukg_get_key(){
      global $wpdb;
