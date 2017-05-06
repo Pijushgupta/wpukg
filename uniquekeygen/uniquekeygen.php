@@ -23,9 +23,11 @@ function ukg_return_char_set(){
 }
 
 function ukg_create_table(){
-    $sql = "CREATE TABLE ukg_return_table_name() (
+    $table_name = ukg_return_table_name();
+    $chaset = ukg_return_char_set();
+    $sql = "CREATE TABLE $table_name (
         uk varchar(255) NOT NULL
-        ) ukg_return_char_set();";
+        ) $chaset;";
     
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $sql );
@@ -42,7 +44,8 @@ function ukg_set_intial_data($args=null){
 
 function ukg_is_table_exits(){
     global $wpdb;
-    if($wpdb->get_var("SHOW TABLES LIKE 'ukg_return_table_name()'")== ukg_return_table_name()){
+    $table_name = ukg_return_table_name();
+    if($wpdb->get_var("SHOW TABLES LIKE '$table_name'")== $table_name){
        
         return true;
     }else{
